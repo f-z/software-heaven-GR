@@ -1,0 +1,151 @@
+<header>
+  <h1>Πληρωμή</h1>
+</header>
+
+<form novalidate
+      class="grid"
+      [formGroup]="formModel"
+      (ngSubmit)="placeOrder()">
+  <section>
+    <div formGroupName="account">
+      <h2>Στοιχεία</h2>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 autofocus
+                 type="email"
+                 placeholder="Email"
+                 formControlName="email">
+          <mat-hint class="error" *ngIf="hasError('required', ['account', 'email'])">Παρακαλώ εισάγετε το email σας</mat-hint>
+          <mat-hint class="error" *ngIf="hasError('pattern', ['account', 'email'])">Το email δεν είναι έγκυρο</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="tel"
+                 placeholder="Αριθμός Τηλεφώνου"
+                 formControlName="phone">
+          <mat-hint class="error" *ngIf="hasError('required', ['account', 'phone'])">Παρακαλώ εισάγετε το τηλέφωνό σας</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div formGroupName="address">
+      <h2>Διεύθυνση</h2>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="text"
+                 placeholder="Οδός"
+                 formControlName="line1">
+          <mat-hint class="error" *ngIf="hasError('required', ['address', 'line1'])">Παρακαλώ εισάγετε τη διεύθυνσή σας</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="text"
+                 placeholder="Πόλη"
+                 formControlName="city">
+          <mat-hint class="error" *ngIf="hasError('required', ['address', 'city'])">Παρακαλώ εισάγετε την πόλη σας</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="text"
+                 placeholder="Νομός"
+                 formControlName="state">
+          <mat-hint class="error" *ngIf="hasError('required', ['address', 'state'])">Παρακαλώ εισάγετε το νομό σας</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="tel"
+                 name="shipZip"
+                 placeholder="Τ.Κ."
+                 formControlName="zip">
+          <mat-hint class="error" *ngIf="hasError('required', ['address', 'zip'])">Παρακαλώ εισάγετε τον ταχυδρομικό σας κώδικα</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-select required
+                   placeholder="Country"
+                   formControlName="country">
+          <mat-option value="CHQ">Χανιά</mat-option>
+          <mat-option calue="HER">Ηράκλειο</mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div formGroupName="payment">
+      <h2>Μέθοδος Πληρωμής</h2>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="text"
+                 placeholder="Όνομα Κατόχου Κάρτας"
+                 formControlName="cardholder">
+          <mat-hint class="error" *ngIf="hasError('required', ['payment', 'cardholder'])">Παρακαλώ εισάγετε το όνομά σας</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput
+                 required
+                 type="tel"
+                 placeholder="Αριθμός κάρτας"
+                 formControlName="cardNumber">
+          <mat-hint class="error" *ngIf="hasError('required', ['payment', 'cardNumber'])">Παρακαλώ εισάγετε τον αριθμό της κάρτας σας</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="row expiry" formGroupName="expiry">
+        <div>
+          <label>Ημ. Λήξης</label>
+          <mat-select formControlName="month">
+            <mat-option *ngFor="let m of months" [value]="m">{{ m }}</mat-option>
+          </mat-select>
+        </div>
+
+        <mat-select formControlName="year">
+          <mat-option *ngFor="let y of years" [value]="y">{{ y }}</mat-option>
+        </mat-select>
+
+        <mat-form-field floatingPlaceholder="false">
+          <input matInput
+                 required
+                 type="tel"
+                 formControlName="cvv"
+                 placeholder="CVV">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2>Σύνοψη παραγγελίας</h2>
+
+    <div class="row">
+      <button mat-raised-button
+              color="primary"
+              type="submit">ΠΑΡΑΓΓΕΛΙΑ</button>
+    </div>
+  </section>
+</form>
