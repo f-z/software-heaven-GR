@@ -13,12 +13,12 @@
       <mat-form-field>
         <input matInput
                type="number" min="0"
-               placeholder="Quantity"
+               placeholder="Ποσότητα"
                [formControlName]="p.id">
       </mat-form-field>
     </div>
 
-    <div class="cart-item-price">{{ p.price | currency:'USD':true }}</div>
+    <div class="cart-item-price">{{ p.price | currency:'EUR':true }}</div>
 
     <div class="cart-item-remove">
       <button mat-icon-button (click)="removeItem(p.id)">
@@ -28,8 +28,8 @@
   </div>
 
   <div class="cart-actions">
-    Total:
-    <div class="total">{{ total | currency:'USD':true }}</div>
-    <a mat-raised-button routerLink="/checkout">CHECKOUT</a>
+    Σύνολο:
+    <div class="total">{{ total | currency:'EUR':true }}</div>
+    <a mat-raised-button routerLink="/checkout">ΑΓΟΡΑ</a>
   </div>
 </div>

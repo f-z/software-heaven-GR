@@ -6,7 +6,7 @@ import 'rxjs/add/operator/mergeMap';
 import { Product, ProductService } from '../shared/services';
 
 @Component({
-  selector: 'ngs-product',
+  selector: 'app-product',
   styleUrls: [ './product.component.scss' ],
   templateUrl: './product.component.html'
 })

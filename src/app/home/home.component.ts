@@ -6,29 +6,28 @@ import { Product, ProductService } from '../shared/services';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'ngs-home',
-  styleUrls: [ './home.component.scss' ],
+  selector: 'app-home',
+  styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements AfterViewInit {
 
   readonly categories = [
-    'all',
-    'featured',
-    'latest',
-    'sport'
+    'ολα',
+    'ashampoo',
+    'eset'
   ];
 
   @ViewChild(MatTabGroup) mdTabGroup: MatTabGroup;
 
   products: Observable<Product[]>;
   constructor(private productService: ProductService,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private route: ActivatedRoute,
+    private router: Router) {
 
     this.products = this.route.params
-      .switchMap(({category}) => {   // Note that we use destructuring here
-        return category === 'all' ?
+      .switchMap(({ category }) => {   // Note that we use destructuring here
+        return category === 'ολα' ?
           this.productService.getAll() :
           this.productService.getCategory(category);
       });
@@ -36,7 +35,6 @@ export class HomeComponent implements AfterViewInit {
 
   onTabChange(tabIndex: number) {
     const category = this.categories[tabIndex];
-    console.log(`Selected category: ${category}`);
     this.router.navigate([category], { relativeTo: this.route.parent });
   }
 

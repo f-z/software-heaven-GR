@@ -1,0 +1,22 @@
+[{
+    "id": "ashampoo-win-optimizer-16",
+    "description": "Εξαιρετική απόδοση, σταθερότητα και ιδιωτικότητα για τον υπολογιστή σας",
+    "imageUrl" : "data/img/ashampoo-win-optimizer-16.png",
+    "price": 70,
+    "title": "Ashampoo® WinOptimizer 16"
+  },
+  {
+    "id": "eset-cyber-security",
+    "description": "Ακριβής και πανίσχυρη ασφάλεια",
+    "imageUrl": "data/img/eset-cyber-security.png",
+    "price": 20,
+    "title": "Eset Cyber Security"
+  },
+  {
+    "id": "eset-cyber-security-pro",
+    "description": "Προστασία πολλαπλών επιπέδων στο Internet",
+    "imageUrl": "data/img/eset-cyber-security-pro.png",
+    "price": 30,
+    "title": "Eset Cyber Security Pro"
+  }
+]

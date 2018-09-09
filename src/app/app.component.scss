@@ -1,11 +1,9 @@
 @import '../styles/palette';
 
 // @debug $ngs-background;
-
 mat-toolbar {
   // To see what colors are included in $ngs-background, and for card in particular, add @debug $ngs-background;
   background: mat-color($ngs-background, card);
-
   // This adds a bottom border. On the home page the tabs are rendered on top of the
   // shadow this makes the header look like a single component. On other pages, the
   // shadow is visible, so it separates header from the content.
@@ -19,4 +17,9 @@ mat-toolbar {
 .logo {
   height: 36px;
   width: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
