@@ -28,11 +28,11 @@ export class HomeComponent implements AfterViewInit {
       // Note that we use destructuring here
       if (category === 'all') {
         this.productService.getAll().subscribe(data => {
-          this.products = data.listings; // Assign array to use in HTML
+          this.products = data.products; // Assign array to use in HTML
         });
       } else {
         this.productService.getCategory(category).subscribe(data => {
-          this.products = data.listings;
+          this.products = data.products;
         });
       }
     });

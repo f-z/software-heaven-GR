@@ -1,6 +1,7 @@
 /* ===================
    Importing Node modules
 =================== */
+// importing environment settings from env.js
 const env = require("./env");
 const express = require("express"); // Fast, unopinionated, minimalist web framework for node
 const app = express(); // Initiate Express application
@@ -9,13 +10,14 @@ const mongoose = require("mongoose"); // Node tool for MongoDB
 mongoose.Promise = global.Promise;
 const config = require("./config/database"); // Mongoose Config
 const path = require("path"); // NodeJS package for file paths
-const listings = require("./routes/listings")(router); // Importing listing routes
+const products = require("./routes/products")(router); // Importing product routes
 const bodyParser = require("body-parser"); // Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 const cors = require("cors"); // CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 const port = process.env.PORT || 8080; // Allows Azure to set port
 
 // Database connection
-mongoose.connect(config.uri,
+mongoose.connect(
+  config.uri,
   err => {
     // Checking if database was able to connect
     if (err) {
@@ -31,7 +33,7 @@ app.use(cors({ origin: "http://localhost:4200" })); // Allows cross origin in de
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 app.use(express.static(__dirname + "/public")); // Provide static directory for frontend
-app.use("/listings", listings); // Use listing routes in application
+app.use("/products", products); // Use product routes in application
 
 // Connecting server to Angular index.html
 app.get("*", (req, res) => {

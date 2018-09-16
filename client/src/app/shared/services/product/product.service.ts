@@ -21,22 +21,20 @@ export class ProductService {
 
   getAll(): Observable<any> {
     return this.http
-      .get(this.domain + 'listings/allListings', this.options)
+      .get(this.domain + 'products/allProducts', this.options)
       .map(res => res.json());
-    // return this.http.get<Product[]>('/assets/all');
   }
 
   getCategory(category: string): Observable<any> {
     return this.http
-      .get(this.domain + 'listings/allListings', this.options)
+      .get(this.domain + 'products/productsByCategory/' + category, this.options)
       .map(res => res.json());
-    // return this.httpClient.get<Product[]>(`assets/${category}`);
   }
 
   getProductById(productId: string): Observable<any> {
     return this.http
-    .get(this.domain + 'listings/singleListing/' + productId, this.options)
-    .map(res => res.json());
+      .get(this.domain + 'products/singleProduct/' + productId, this.options)
+      .map(res => res.json());
   }
 }
 

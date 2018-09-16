@@ -19,6 +19,6 @@ export class ProductComponent {
     // We use `mergeMap` because getProductById() returns an Observable
     route.params
       .mergeMap(({productId}) => productService.getProductById(productId))
-      .subscribe(data => this.product = data.listing);
+      .subscribe(data => this.product = data);
   }
 }

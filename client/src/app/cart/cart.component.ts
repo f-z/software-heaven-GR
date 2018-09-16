@@ -17,6 +17,7 @@ export class CartComponent {
   constructor(private cart: ShoppingCartService, route: ActivatedRoute) {
 
     this.products = route.snapshot.data['products'];
+    console.log(this.products);
     const cartItems = this.cart.getItems();
 
     const controls = this.products.reduce((accumulator, product) => {
